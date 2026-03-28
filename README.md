@@ -2,33 +2,77 @@
 <html>
 <head>
   <title>For Bubu ❤️</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
-      font-family: 'Quicksand', sans-serif;
+      font-family: Arial;
       text-align: center;
-      overflow-x: hidden;
+      background: #ffe4ec;
     }
 
-    section {
-      height: 100vh;
+    .page {
       display: none;
-      padding: 40px;
-      color: #4a2c2a;
+      padding: 50px;
     }
 
     .active {
       display: block;
     }
 
-    /* DIFFERENT SOFT BACKGROUNDS */
-    #s1 { background: linear-gradient(135deg, #ffd6e0, #ffe9ec); }
-    #s2 { background: linear-gradient(135deg, #ffe4ec, #fff1f5); }
-    #s3 { background: linear-gradient(135deg, #ffd1dc, #ffe4e9); }
-    #s4 { background: linear-gradient(135deg, #ffe0e6, #fff5f7); }
+    p {
+      font-size: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 20px;
+      border-radius: 20px;
+      border: none;
+      background: #ff4d6d;
+      color: white;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="p1" class="page active">
+  <p>Dear bubu I am sorry for eveyrthinf till now and what ive been till now</p>
+  <button onclick="next(2)">Next ❤️</button>
+</div>
+
+<div id="p2" class="page">
+  <p>So Ill just be frank and honest . Ive not been the best ive had many faults in me I dont wanna loose you lets sort everything and make our reln work and I really will do my beat to be a good boyf for you but one real thing see i really really love you and i cammot imagine a life without you . I really always want you really .</p>
+  <button onclick="next(3)">Next</button>
+</div>
+
+<div id="p3" class="page">
+  <p>I really am always in love with you and tbh the feelings that ive for you are really very different . Things are really really messed uo but still ik we cam figure out and even that ik if im all good reln will be as u want i really really love you the most and i do really mean this ik u might be nkt seeing mt actions but i give you a promise from this moment you will</p>
+  <button onclick="next(4)">Next</button>
+</div>
+
+<div id="p4" class="page">
+  <p>Please lets just fix everything together because i always want us to be togetjer and i really will do anything to keep u with me and yes i want you and only you and you are the love of my life my everything i cant be without you</p>
+  <button onclick="next(5)">Next</button>
+</div>
+
+<div id="p5" class="page">
+  <p>So pls im sorry and lets fix<br>Yes or yes no option u have</p>
+  <button onclick="alert('I love you Bubu ❤️')">Yes</button>
+</div>
+
+<script>
+function next(n) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById("p" + n).classList.add("active");
+}
+</script>
+
+</body>
+</html>    #s4 { background: linear-gradient(135deg, #ffe0e6, #fff5f7); }
     #s5 { background: linear-gradient(135deg, #ffc9d6, #ffe6ec); }
 
     p {
