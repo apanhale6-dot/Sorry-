@@ -18,23 +18,147 @@
       display: none;
       padding: 40px;
       color: #4a2c2a;
-      position: relative;
     }
 
     .active {
       display: block;
     }
 
-    /* Background overlay for readability */
-    .overlay {
+    /* DIFFERENT SOFT BACKGROUNDS */
+    #s1 { background: linear-gradient(135deg, #ffd6e0, #ffe9ec); }
+    #s2 { background: linear-gradient(135deg, #ffe4ec, #fff1f5); }
+    #s3 { background: linear-gradient(135deg, #ffd1dc, #ffe4e9); }
+    #s4 { background: linear-gradient(135deg, #ffe0e6, #fff5f7); }
+    #s5 { background: linear-gradient(135deg, #ffc9d6, #ffe6ec); }
+
+    p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 20px;
+      margin-top: 120px;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 40px;
+      padding: 14px 28px;
+      border-radius: 30px;
+      border: none;
+      background: #ff9aa2;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      background: #ff7f8a;
+    }
+
+    /* FLOATING EMOJIS */
+    .float {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 245, 247, 0.7);
-      backdrop-filter: blur(4px);
-      z-index: 0;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<section id="s1" class="active">
+  <p id="p1"></p>
+  <button onclick="next(2)">Tap here ❤️</button>
+</section>
+
+<section id="s2">
+  <p id="p2"></p>
+  <button onclick="next(3)">Next 🧸</button>
+</section>
+
+<section id="s3">
+  <p id="p3"></p>
+  <button onclick="next(4)">Next 💖</button>
+</section>
+
+<section id="s4">
+  <p id="p4"></p>
+  <button onclick="next(5)">Almost there 🫶</button>
+</section>
+
+<section id="s5">
+  <p id="p5"></p>
+  <button onclick="alert('I love you Bubu ❤️🧸')">Yes ❤️</button>
+  <button onclick="move(this)">No 😄</button>
+</section>
+
+<script>
+
+const text = [
+`Dear bubu I am sorry for eveyrthinf till now and what ive been till now 🧸❤️`,
+
+`So Ill just be frank and honest . Ive not been the best ive had many faults in me I dont wanna loose you lets sort everything and make our reln work and I really will do my beat to be a good boyf for you but one real thing see i really really love you and i cammot imagine a life without you . I really always want you really . 💖`,
+
+`I really am always in love with you and tbh the feelings that ive for you are really very different . Things are really really messed uo but still ik we cam figure out and even that ik if im all good reln will be as u want i really really love you the most and i do really mean this ik u might be nkt seeing mt actions but i give you a promise from this moment you will 🫶`,
+
+`Please lets just fix everything together because i always want us to be togetjer and i really will do anything to keep u with me and yes i want you and only you and you are the love of my life my everything i cant be without you ❤️`,
+
+`So pls im sorry and lets fix  
+Yes or yes no option u have 😤❤️`
+];
+
+function type(id, text) {
+  let i = 0;
+  let el = document.getElementById(id);
+  el.innerHTML = "";
+
+  function typing() {
+    if (i < text.length) {
+      el.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, 25);
+    }
+  }
+  typing();
+}
+
+function next(n) {
+  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+  document.getElementById("s" + n).classList.add("active");
+  type("p"+n, text[n-1]);
+}
+
+function move(btn) {
+  btn.style.position = "absolute";
+  btn.style.top = Math.random()*80 + "%";
+  btn.style.left = Math.random()*80 + "%";
+}
+
+/* FLOATING HEARTS + TEDDY */
+function floatEmoji() {
+  const emojis = ["❤️","💖","🧸","💗"];
+  let el = document.createElement("div");
+  el.className = "float";
+  el.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+  el.style.left = Math.random()*100 + "vw";
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(), 6000);
+}
+
+setInterval(floatEmoji, 500);
+
+type("p1", text[0]);
+
+</script>
+
+</body>
+</html>      z-index: 0;
     }
 
     .content {
